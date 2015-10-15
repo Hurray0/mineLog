@@ -1,0 +1,9 @@
+name: mineLog
+main: mineLog.MineLog
+version: 0.0.1
+commands:
+   hello:
+      description: This is a demo command.
+      usage: /hello
+      permission: mineLog.hello
+      permission-message: You don't have <permission>
