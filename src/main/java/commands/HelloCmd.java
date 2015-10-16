@@ -16,7 +16,7 @@ public class HelloCmd implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
-		if (!sender.hasPermission("mineLog.test")) {
+		if (!sender.hasPermission("mineLog.hello")) {
 			sender.sendMessage(ChatColor.RED
 					+ "You do not have permission to use this command.");
 			return false;

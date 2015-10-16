@@ -25,24 +25,24 @@ public class UserUtil {
 	public UserUtil(Player player, JavaPlugin plugin) {
 		this.plugin = plugin;
 
-		plugin.getLogger().info("One UserUtil object is build.");
+		// plugin.getLogger().info("One UserUtil object is build.");
 
-		this.ca = new ConfigAccessor(plugin, "userData/" + player.getName() + ".yml");
+		this.ca = new ConfigAccessor(plugin, "player/" + player.getName() + ".yml");
 		this.pDB_all = new HashMap<String, Integer>();
-		HashMap<String, Object> temp = (HashMap<String, Object>) ca.getConfig()
-				.getConfigurationSection("all").getValues(false);
-		Iterator iter = temp.entrySet().iterator();
-		while (iter.hasNext()) {
-			Map.Entry entry = (Map.Entry) iter.next();
-			Object key = entry.getKey();
-			Object val = entry.getValue();
-			this.pDB_all.put((String)key, (Integer)val);
+		try {
+			HashMap<String, Object> temp = (HashMap<String, Object>) ca
+					.getConfig().getConfigurationSection("all")
+					.getValues(false);
+			Iterator iter = temp.entrySet().iterator();
+			while (iter.hasNext()) {
+				Map.Entry entry = (Map.Entry) iter.next();
+				Object key = entry.getKey();
+				Object val = entry.getValue();
+				this.pDB_all.put((String) key, (Integer) val);
+			}
+		} catch (Exception e) {
 		}
 		this.pDB_once = new HashMap<String, Integer>();
-
-		if (this.pDB_all == null) {
-			this.pDB_all = new HashMap<String, Integer>();
-		}
 
 		this.startTime = getTime();
 		plugin.getLogger().info("time:" + this.startTime);
@@ -51,7 +51,7 @@ public class UserUtil {
 	private String getTime() {
 		Date now = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"yyyy/MM/dd-HH-mm-ss");
+				"yyyy/MM/dd HH:mm:ss");
 		String time = dateFormat.format(now);
 		return time;
 	}

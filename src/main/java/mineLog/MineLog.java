@@ -31,6 +31,7 @@ public class MineLog extends JavaPlugin {
 		getLogger().info("onEnable has been invoked!");
 
 		this.getCommand("hello").setExecutor(new HelloCmd(this));
+		this.getCommand("log").setExecutor(new LogMaterialCmd(this));
 		
 		registerListener(new LoginListener(this, this.usersDB));
 		registerListener(new MineListener(this, this.usersDB));

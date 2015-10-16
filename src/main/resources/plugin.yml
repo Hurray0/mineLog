@@ -7,8 +7,8 @@ commands:
       usage: /hello
       permission: mineLog.hello
       permission-message: You don't have <permission>
-   test:
-      description: This is a test command.
-      usage: /test
-      permission: mineLog.test
+   log:
+      description: To add material needed logging
+      usage: /log
+      permission: mineLog.log
       permission-message: You don't have <permission>
