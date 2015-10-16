@@ -1,14 +1,14 @@
 name: mineLog
 main: mineLog.MineLog
-version: 0.0.1
+version: 1.0.0
 commands:
    hello:
       description: This is a demo command.
       usage: /hello
-      permission: mineLog.hello
+      permission: builder
       permission-message: You don't have <permission>
    log:
-      description: To add material needed logging
+      description: main command of mineLog
       usage: /log
       permission: mineLog.log
-      permission-message: You don't have <permission>
+      permission-message: You don't have permisson <permission>

@@ -1,4 +1,4 @@
-package configs;
+package handler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,8 +62,8 @@ public class DefaultConf {
 
 		this.plugin.getConfig().set("log-blocks", list);
 		this.plugin.saveConfig();
-		return ChatColor.GREEN + "Add log blocks successfully! block:"
-				+ material.name();
+		return ChatColor.RED + material.name() + ChatColor.GREEN + " "
+				+ "added to log successfully!";
 	}
 
 	public String delLogMaterial(String idOrType) {
@@ -102,11 +102,33 @@ public class DefaultConf {
 
 		List<Integer> list;
 		list = this.plugin.getConfig().getIntegerList("log-blocks");
-		if (list.contains((Integer)id)) {
+		if (list.contains((Integer) id)) {
 			return true;
 		} else {
 			return false;
 		}
 
+	}
+
+	public String listLogMaterial() {
+		List<Integer> list;
+		try {
+			list = this.plugin.getConfig().getIntegerList(
+					"log-blocks");
+		} catch (Exception e) {
+			return ChatColor.RED
+					+ "There is not any log materials. Please use this command to add: /log add";
+		}
+		String output = ChatColor.GREEN + "Material logs: ";
+		for (int i = 0; i < list.size(); i++) {
+			int item = list.get(i);
+			output += Material.getMaterial(item).name() + "(" + item + ")";
+
+			if (i + 1 < list.size()) {
+				output += ", ";
+			}
+		}
+
+		return output;
 	}
 }

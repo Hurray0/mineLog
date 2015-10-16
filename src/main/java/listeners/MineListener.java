@@ -1,5 +1,7 @@
 package listeners;
 
+import handler.DefaultConf;
+
 import java.util.List;
 import java.util.logging.Level;
 
@@ -16,7 +18,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import util.UsersDB;
 import configs.ConfigAccessor;
-import configs.DefaultConf;
 import mineLog.MineLog;
 
 public class MineListener implements Listener {

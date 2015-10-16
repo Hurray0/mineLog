@@ -38,4 +38,14 @@ public class UsersDB {
 		UserUtil uu = this.userMap.get(player.getName());
 		uu.delNum(material);
 	}
+
+	public HashMap<String, UserUtil> getUserMap() {
+		return userMap;
+	}
+
+	public void setUserMap(HashMap<String, UserUtil> userMap) {
+		this.userMap = userMap;
+	}
+	
+	
 }
