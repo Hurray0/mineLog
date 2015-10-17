@@ -1,6 +1,6 @@
 name: mineLog
 main: mineLog.MineLog
-version: 1.0.0
+version: 1.0.1
 commands:
    hello:
       description: This is a demo command.

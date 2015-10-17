@@ -2,6 +2,7 @@ package listeners;
 
 import handler.DefaultConf;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -24,6 +25,7 @@ public class MineListener implements Listener {
 	private JavaPlugin plugin;
 	private UsersDB usersDB;
 	private DefaultConf dc;
+	private HashMap<String, Integer> logBlocks;
 
 	public MineListener(JavaPlugin plugin, UsersDB usersDB) {
 		this.plugin = plugin;
@@ -32,13 +34,14 @@ public class MineListener implements Listener {
 		// load config.yml
 		this.dc = new DefaultConf(plugin);
 		
+
 	}
 
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent event) {
 		Block block = event.getBlock();
-		// if (!this.logBlocks.contains(block.getTypeId()))
-		// return;
+		if (!dc.isLogMaterial(block.getTypeId()))
+			return;
 
 		Player player = event.getPlayer();
 		this.usersDB.addNum(player, block.getType());

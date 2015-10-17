@@ -72,7 +72,7 @@ public class LogMaterialCmd implements CommandExecutor {
 					}
 
 				} else if (args[0].equalsIgnoreCase("show")) {
-					if (args[1] != null && !args[1].equals("")) {
+					if (args.length > 1) {
 						String output = getUserLog(args[1]);
 						sender.sendMessage(output);
 						return true;
@@ -155,15 +155,15 @@ public class LogMaterialCmd implements CommandExecutor {
 		String output = ChatColor.GREEN + "";
 		File dir = new File("plugins/mineLog/player/");
 		File[] files = dir.listFiles();
-		if(files == null)
+		if (files == null)
 			return ChatColor.RED + "No user data now!";
-			int i = 0;
+		int i = 0;
 		for (File file : files) {
 			i++;
 			String fileName = file.getName();
-			String temp[] = fileName.split(".");
+			String temp[] = fileName.split("\\.");
 			String userName = temp[0];
-			output += userName + " ";
+			output += userName + " hhh";
 		}
 		if (i == 0) {
 			output = ChatColor.RED + "No user data now!";
